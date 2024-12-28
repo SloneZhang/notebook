@@ -1,0 +1,39 @@
+PS:不确定好不好用
+
+如果您发现 SSH 连接会话的超时时间太短，导致连接过早断开，您可以调整 SSH 配置文件中的相关设置来延长超时时间。以下是一些常用的配置选项：
+
+ClientAliveInterval
+
+这个选项用于设置服务器向客户端发送消息的间隔时间（以秒为单位），以保持连接活跃。如果客户端没有响应，服务器将断开连接。
+在 /etc/ssh/sshd_config 文件中设置：
+ClientAliveInterval 300
+这将设置服务器每5分钟（300秒）向客户端发送一次消息。
+ClientAliveCountMax
+
+这个选项用于设置在服务器决定断开连接之前，可以连续发送多少个无响应的 ClientAliveInterval 消息。
+在 /etc/ssh/sshd_config 文件中设置：
+ClientAliveCountMax 0
+设置为 0 表示服务器将不断发送消息，直到客户端断开连接。
+ServerAliveInterval
+
+这个选项用于设置客户端向服务器发送消息的间隔时间（以秒为单位），以保持连接活跃。如果服务器没有响应，客户端将断开连接。
+在客户端的 SSH 配置文件（通常是 ~/.ssh/config）中设置：
+Host *
+    ServerAliveInterval 300
+这将设置客户端每5分钟（300秒）向服务器发送一次消息。
+ServerAliveCountMax
+
+这个选项用于设置在客户端决定断开连接之前，可以连续发送多少个无响应的 ServerAliveInterval 消息。
+在客户端的 SSH 配置文件中设置：
+Host *
+    ServerAliveCountMax 0
+设置为 0 表示客户端将不断发送消息，直到服务器断开连接。
+请注意，您需要根据您的具体需求调整这些值。调整后，您需要重启 SSH 服务以使更改生效：
+
+bash
+sudo systemctl restart sshd
+或者，如果您使用的是较旧的系统，可能需要使用以下命令：
+
+bash
+sudo service sshd restart
+如果您是在客户端配置文件中进行更改，那么通常不需要重启服务，只需重新连接即可。

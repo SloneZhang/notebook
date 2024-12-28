@@ -1,0 +1,57 @@
+Apache License 2.0
+GNU General Public License v3.0
+MIT License
+BSD 2-Clause "Simplified" License
+BSD 3-Clause "New" or "Revised" License
+Boost Software License 1.0
+Creative Commons Zero v1.0 Universal
+Eclipse Public License 2.0
+GNU Affero General Public License v3.0
+GNU General Public License v2.0
+GNU Lesser General Public License v2.1
+Mozilla Public License 2.0
+The Unlicense
+
+
+Apache License 2.0
+
+非常宽松，提供专利授权，适用于商业用途，要求在分发的副本中包含原始许可证和版权声明。
+GNU General Public License v3.0 (GPLv3)
+
+强复制左许可证，要求任何分发的代码（包括修改后的版本）都必须以GPL许可证发布。
+MIT License
+
+非常宽松，只需要包含版权声明和许可声明，适用于商业用途。
+BSD 2-Clause "Simplified" License
+
+宽松的许可证，只需要包含版权声明，不需要在分发的代码中包含许可证文本。
+BSD 3-Clause "New" or "Revised" License
+
+与2-clause类似，但增加了一个条款，禁止使用版权持有者的名称进行宣传，而无需版权持有者的许可。
+Boost Software License 1.0
+
+宽松的许可证，允许商业使用，并且不需要在分发的代码中包含许可证文本。
+Creative Commons Zero v1.0 Universal (CC0)
+
+将作品奉献给公共领域，放弃所有版权。
+Eclipse Public License 2.0 (EPL)
+
+允许商业使用，要求在分发的代码中包含许可证和版权声明。
+GNU Affero General Public License v3.0 (AGPLv3)
+
+类似于GPLv3，但对网络服务有额外的要求，如果修改后的代码通过网络提供服务，必须公开源代码。
+GNU General Public License v2.0 (GPLv2)
+
+与GPLv3类似，但没有GPLv3中的一些更新和改进。
+GNU Lesser General Public License v2.1 (LGPLv2.1)
+
+适用于库文件，允许将LGPL库与非开源代码一起使用，只要库接口保持不变。
+Mozilla Public License 2.0 (MPL 2.0)
+
+允许代码的商业使用，要求任何分发的源代码必须以MPL许可证发布。
+The Unlicense
+
+放弃版权，将代码置于公共领域。
+选择哪种许可证取决于您的具体需求和偏好。例如，如果您希望您的代码尽可能自由地被使用和分发，MIT和Apache License 2.0是很好的选择。如果您希望确保任何基于您的代码的衍生作品也保持开源，GPLv3是一个好选择。如果您正在创建一个库，希望它能够被更广泛地使用，包括在非开源项目中，LGPLv2.1是一个好选择。
+
+在GitHub上，您可以在创建仓库时选择一个许可证，或者之后在仓库的根目录中添加一个LICENSE文件来指定许可证。这有助于保护您的代码，并为其他开发者提供明确的使用指南。

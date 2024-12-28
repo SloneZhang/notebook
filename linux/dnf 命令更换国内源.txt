@@ -1,0 +1,73 @@
+1、换目录到配置区域
+cd /etc/yum.repos.d/
+
+2、自行备份，备份完删除所有
+rm -rf ./*
+
+3、没有脚本，下面命令全部复制粘贴，如果版本不对去 https://mirrors.aliyun.com/repo/ 这个网址自己找，stream版本不知道为什么这么多源
+
+阿里云 CentOS Stream 8 源：
+
+wget -O /etc/yum.repos.d/CentOS-Stream-AppStream.repo https://mirrors.aliyun.com/repo/centos-stream/8/CentOS-Stream-AppStream.repo
+
+wget -O /etc/yum.repos.d/CentOS-Stream-BaseOS.repo https://mirrors.aliyun.com/repo/centos-stream/8/CentOS-Stream-BaseOS.repo
+
+wget -O /etc/yum.repos.d/CentOS-Stream-Debuginfo.repo https://mirrors.aliyun.com/repo/centos-stream/8/CentOS-Stream-Debuginfo.repo
+
+wget -O /etc/yum.repos.d/CentOS-Stream-Extras-common.repo https://mirrors.aliyun.com/repo/centos-stream/8/CentOS-Stream-Extras-common.repo
+
+wget -O /etc/yum.repos.d/CentOS-Stream-Extras.repo https://mirrors.aliyun.com/repo/centos-stream/8/CentOS-Stream-Extras.repo
+
+wget -O /etc/yum.repos.d/CentOS-Stream-HighAvailability.repo https://mirrors.aliyun.com/repo/centos-stream/8/CentOS-Stream-HighAvailability.repo
+
+wget -O /etc/yum.repos.d/CentOS-Stream-Media.repo https://mirrors.aliyun.com/repo/centos-stream/8/CentOS-Stream-Media.repo
+
+wget -O /etc/yum.repos.d/CentOS-Stream-NFV.repo https://mirrors.aliyun.com/repo/centos-stream/8/CentOS-Stream-NFV.repo
+
+wget -O /etc/yum.repos.d/CentOS-Stream-PowerTools.repo https://mirrors.aliyun.com/repo/centos-stream/8/CentOS-Stream-PowerTools.repo
+
+wget -O /etc/yum.repos.d/CentOS-Stream-RealTime.repo https://mirrors.aliyun.com/repo/centos-stream/8/CentOS-Stream-RealTime.repo
+
+wget -O /etc/yum.repos.d/CentOS-Stream-ResilientStorage.repo https://mirrors.aliyun.com/repo/centos-stream/8/CentOS-Stream-ResilientStorage.repo
+
+wget -O /etc/yum.repos.d/CentOS-Stream-Sources.repo https://mirrors.aliyun.com/repo/centos-stream/8/CentOS-Stream-Sources.repo
+
+4、清空缓存
+sudo dnf clean all
+
+5、重新加载缓存
+sudo dnf makecache
+
+
+
+PS：这些是新源头，参考即可，想换源按照网址换即可
+
+阿里云 CentOS 7 源（推荐）：
+wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
+ 
+网易163 CentOS 7 源：
+wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.163.com/.help/CentOS7-Base-163.repo
+ 
+搜狐 CentOS 7 源：
+wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.sohu.com/help/CentOS7-Base-sohu.repo
+ 
+华为云 CentOS 7 源：
+wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.myhuaweicloud.com/repo/CentOS-7.repo
+ 
+华东理工大学 CentOS 7 源：
+wget -O /etc/yum.repos.d/CentOS-Base.repo https://mirrors.ustc.edu.cn/centos/7/os/x86_64
+ 
+清华大学 CentOS 7 源：
+wget -O /etc/yum.repos.d/CentOS-Base.repo https://mirrors.tuna.tsinghua.edu.cn/centos/7/os/x86_64/
+ 
+北京理工大学 CentOS 7 源：
+wget -O /etc/yum.repos.d/CentOS-Base.repo https://mirrors.bfsu.edu.cn/centos/7/os/x86_64/
+ 
+上海交通大学 CentOS 7 源：
+wget -O /etc/yum.repos.d/CentOS-Base.repo https://ftp.sjtu.edu.cn/centos/7/os/x86_64/
+ 
+中国科学技术大学 CentOS 7 源：
+wget -O /etc/yum.repos.d/CentOS-Base.repo https://mirrors.ustc.edu.cn/centos/7/os/x86_64/
+ 
+兰州大学 CentOS 7 源：
+wget -O /etc/yum.repos.d/CentOS-Base.repo https://mirror.lzu.edu.cn/centos/7/os/x86_64/

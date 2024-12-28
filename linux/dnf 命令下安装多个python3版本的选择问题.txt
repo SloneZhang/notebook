@@ -1,0 +1,3 @@
+sudo update-alternatives --config python3
+
+然后按照数字选择即可

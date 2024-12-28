@@ -1,0 +1,110 @@
+Python 提供了多个模块来处理 TCP 网络编程，其中最常用的是 `socket` 模块。以下是 `socket` 模块中与 TCP 相关的一些函数和方法的详情：
+
+1. **socket.socket()**：
+   创建一个新的 socket 对象。你需要指定 socket 的类型，对于 TCP 来说，类型是 `socket.AF_INET`（IPv4）或 `socket.AF_INET6`（IPv6），以及 `socket.SOCK_STREAM`（流式套接字，即 TCP）。
+
+   ```python
+   import socket
+   
+   s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+   ```
+
+2. **socket.bind()**：
+   将 socket 绑定到一个地址和端口上。这对于服务器端来说是必要的，因为服务器需要在特定的端口上监听客户端的连接。
+
+   ```python
+   host = 'localhost'
+   port = 12345
+   s.bind((host, port))
+   ```
+
+3. **socket.listen()**：
+   使 socket 进入监听状态，准备接受连接。backlog 参数指定了操作系统排队等待的连接个数。
+
+   ```python
+   s.listen(5)
+   ```
+
+4. **socket.accept()**：
+   接受一个新连接。这个函数会阻塞，直到一个客户端连接到服务器。返回一个新的 socket 对象和客户端的地址。
+
+   ```python
+   client_socket, addr = s.accept()
+   ```
+
+5. **socket.connect()**：
+   客户端使用此方法连接到服务器。需要提供服务器的地址和端口。
+
+   ```python
+   remote_host = 'www.example.com'
+   remote_port = 12345
+   s.connect((remote_host, remote_port))
+   ```
+
+6. **socket.send()** 和 **socket.sendall()**：
+   发送数据到连接的 socket。`send()` 发送数据，但可能不会一次发送所有数据，而 `sendall()` 会确保所有数据都被发送。
+
+   ```python
+   s.send(b'Hello, world')
+   s.sendall(b'This will be sent completely')
+   ```
+
+7. **socket.recv()** 和 **socket.recvfrom()**：
+   接收数据。`recv()` 用于接收来自连接 socket 的数据，而 `recvfrom()` 用于接收来自非连接 socket 的数据。
+
+   ```python
+   data = s.recv(1024)
+   ```
+
+8. **socket.close()**：
+   关闭 socket。一旦 socket 被关闭，所有的操作都将失败。
+
+   ```python
+   s.close()
+   ```
+
+9. **socket.shutdown()**：
+   关闭 socket 的一部分，可以是读、写或两者。这对于优雅地关闭连接很有用。
+
+   ```python
+   s.shutdown(socket.SHUT_RDWR)
+   ```
+
+这些是 `socket` 模块中与 TCP 相关的基本函数和方法。使用这些函数，你可以创建 TCP 客户端和服务器程序。下面是一个简单的 TCP 服务器和客户端的例子：
+
+**TCP 服务器**：
+
+```python
+import socket
+
+def tcp_server():
+    server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    server_socket.bind(('localhost', 12345))
+    server_socket.listen(5)
+    
+    while True:
+        client_socket, addr = server_socket.accept()
+        print(f"Connected by {addr}")
+        client_socket.send(b'Welcome to the server!')
+        client_socket.close()
+
+tcp_server()
+```
+
+**TCP 客户端**：
+
+```python
+import socket
+
+def tcp_client():
+    client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    client_socket.connect(('localhost', 12345))
+    
+    message = client_socket.recv(1024)
+    print(f"Received: {message.decode()}")
+    client_socket.close()
+
+tcp_client()
+```
+
+请注意，这些代码示例仅用于说明 `socket` 模块的基本用法，实际应用中可能需要更多的错误处理和功能。

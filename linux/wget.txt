@@ -1,0 +1,121 @@
+`wget` 是一个非常强大的命令行工具，用于从网络上下载文件。它支持HTTP、HTTPS和FTP协议，可以递归下载整个网站，支持断点续传，并且可以处理复杂的文件名。以下是一些常用的 `wget` 命令选项和它们的详细解释：
+
+### 基本用法
+```bash
+wget [选项] [URL]
+```
+
+### 常用选项
+
+- **-h, --help**：
+  显示帮助信息。
+
+- **-V, --version**：
+  显示 `wget` 的版本信息。
+
+- **-q, --quiet**：
+  不显示任何输出。
+
+- **-v, --verbose**：
+  显示详细的输出信息。
+
+- **-nv, --no-verbose**：
+  不显示详细的输出信息（默认行为）。
+
+- **-nc, --no-clobber**：
+  不覆盖已存在的文件。
+
+- **-c, --continue**：
+  继续部分下载的文件。
+
+- **-O, --output-document=文件名**：
+  指定输出文件名。
+
+- **-P, --directory-prefix=目录**：
+  指定下载文件的目录。
+
+- **-r, --recursive**：
+  递归下载。
+
+- **-l, --level=数字**：
+  递归下载的深度。
+
+- **-p, --page-requisites**：
+  递归下载当前页面的所有需求文件（如图片）。
+
+- **-k, --convert-links**：
+  将相对链接转换为绝对链接。
+
+- **-np, --no-parent**：
+  不递归下载父目录。
+
+- **-A, --accept=类型**：
+  指定接受的文件类型。
+
+- **-R, --reject=类型**：
+  指定拒绝的文件类型。
+
+- **-nd, --no-directories**：
+  不创建目录结构。
+
+- **-nx, --no-clobber**：
+  不覆盖已存在的文件。
+
+- **-m, --mirror**：
+  镜像指定的站点或页面。
+
+- **-U, --user-agent=字符串**：
+  设置用户代理字符串。
+
+- **--limit-rate=速率**：
+  限制下载速度。
+
+- **-t, --tries=数字**：
+  设置最大尝试次数。
+
+- **-T, --timeout=秒数**：
+  设置超时时间。
+
+- **--waitretry=秒数**：
+  设置重试之间的等待时间。
+
+- **--no-check-certificate**：
+  不检查SSL证书。
+
+- **--no-cookies**：
+  不使用cookies。
+
+- **--load-cookies=文件**：
+  从文件中加载cookies。
+
+- **--save-cookies=文件**：
+  将cookies保存到文件。
+
+### 示例
+
+1. **下载单个文件**：
+   ```bash
+   wget http://example.com/file.zip
+   ```
+
+2. **指定下载文件的名称**：
+   ```bash
+   wget -O my_file.zip http://example.com/file.zip
+   ```
+
+3. **递归下载整个网站**：
+   ```bash
+   wget -r -p -k http://example.com/
+   ```
+
+4. **限制下载速度**：
+   ```bash
+   wget --limit-rate=100k http://example.com/file.zip
+   ```
+
+5. **使用代理下载**：
+   ```bash
+   wget -e use_proxy=yes -e http_proxy=http://proxy:port http://example.com/file.zip
+   ```
+
+`wget` 是一个非常灵活的工具，可以通过组合不同的选项来满足各种下载需求。如果您有特定的使用场景，可以进一步探索 `wget` 的文档或使用 `wget --help` 来获取更多信息。

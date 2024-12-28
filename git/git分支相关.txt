@@ -1,0 +1,32 @@
+git branch
+查看当前分支，确保分支正确
+
+git ls-remote --heads origin 
+来查看远程仓库的所有分支。
+
+git checkout feature
+如果你已经有一个分支，比如 feature，你可以使用以下命令切换到该分支：
+
+git checkout -b new-branch
+如果你想创建一个新的分支并立即切换到该分支
+
+git branch -a
+你可以使用以下命令查看本地和远程分支
+
+git branch
+或者只查看本地分支
+
+git branch -d branch-name
+如果你想要删除一个本地分支
+
+git branch -D branch-name
+这会删除名为 branch-name 的分支。如果该分支上有未合并的更改，Git 会阻止删除以防止数据丢失。如果你确定要删除这个分支，可以使用强制删除
+
+
+git fetch origin
+git checkout -b branch-name origin/branch-name
+如果你想要切换到远程分支，首先需要确保该分支已经在你的本地仓库中。你可以使用以下命令来获取远程分支列表并跟踪远程分支
+
+git branch --set-upstream-to=origin/branch-name
+如果你已经有一个本地分支，并且想要设置它跟踪远程分支
+
